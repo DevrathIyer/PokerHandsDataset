@@ -1,7 +1,7 @@
 import json
 
-fout = open('hands_valid.json', 'w')
-with open('hands.json', 'r') as f:
+fout = open('/hands_valid.json', 'w')
+with open('/hands.json', 'r') as f:
     total = 0
     good = 0
     line = f.readline()
