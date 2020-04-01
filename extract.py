@@ -105,7 +105,6 @@ and ready for loading into MongoDB.
 
 # Parses "hdb" file from the IRC Poker Database http://poker.cs.ualberta.ca/irc_poker_database.html
 from builtins import str
-from ColorPrint import print
 import os
 from tarfile import TarFile
 import re
@@ -113,7 +112,7 @@ import codecs
 import json
 
 # ENVIRONMENT VARIABLES -- CHANGE THESE TO FIT YOUR ENVIRONMENT
-tgz_extract_directory = "/Users/allenfrostline/Downloads/"
+tgz_extract_directory = "/"
 OUTFILE = tgz_extract_directory + "hands.json"
 LOCAL_OS = "mac"  # valid values are "mac" or "pc"
 # END ENVIRONMENT VARIABLES
@@ -374,9 +373,9 @@ def loop_file_groups(file_groups):
             hands_list = fix_players_list(list(hands.values()))
             append_hands_list_to_json_file(hands_list)
             print(str(len(hands_list)) + " valid hands added to JSON file, " + str(
-                len(inv_keys)) + " invalid hands", color='green')
+                len(inv_keys)) + " invalid hands")
             running_total = running_total + len(hands_list)
-            print(str(running_total) + " total hands added so far", color='yellow')
+            print(str(running_total) + " total hands added so far")
             print("Finished processing " + fg + '\n')
         except IndexError:
             print('Failed to process ' + fg + '\n')
@@ -405,7 +404,7 @@ def loop_tgz(extract_dir):
                         file_groups.append(tgz_extract_directory + game_type +
                                            SLASH + file_yearmonth + SLASH)
                     else:
-                        print("Skipping " + tgz_file + " because it is for an invalid game type", color='red')
+                        print("Skipping " + tgz_file + " because it is for an invalid game type")
         return file_groups
     except IOError:
         # invalid_keys.add(_id)
